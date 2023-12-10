@@ -1,2 +1,2 @@
 <a href="/">Back home</a>
-<h1><?=$data['name']?></h1>
+<h1><?=$row['name']?></h1>

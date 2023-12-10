@@ -1,13 +1,14 @@
 <?php
 #namespace
 #namespace controllers;
-class HomeController{
+require_once('BaseController.php');
+class HomeController extends BaseController{
     //naive
-    protected function view(array $data, string $name){
-        // tach cac phan tu trong array thanh cac varialble rieng le
-        extract($data);
-        require_once("views/$name.php");
-    }
+    // protected function view(array $data, string $name){
+    //     // tach cac phan tu trong array thanh cac varialble rieng le
+    //     extract($data);
+    //     require_once("views/$name.php");
+    // }
 
 
     function index(){
