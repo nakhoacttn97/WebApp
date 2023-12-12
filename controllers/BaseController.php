@@ -1,4 +1,6 @@
 <?php
+namespace controllers;
+
 abstract class BaseController{
     protected string $layout = 'layout';
     protected string $title = 'Store';
