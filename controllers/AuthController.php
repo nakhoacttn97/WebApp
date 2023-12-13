@@ -1,6 +1,6 @@
 <?php
-#namespace controllers;
-require_once('BaseController.php');
+namespace controllers;
+//require_once('BaseController.php');
 class AuthController extends BaseController{
     function __construct(){
         $this->layout = 'authLayout';

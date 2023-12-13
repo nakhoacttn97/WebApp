@@ -7,7 +7,7 @@ class Db{
     // method constructor
     function __construct(){
         // Error
-        $this->pdo = new PDO('mysql:host=localhost;dbname=Store', 'root', '');
+        $this->pdo = new \PDO('mysql:host=localhost;dbname=Store', 'root', '');
     }
 
     protected function getAll(string $sql, $params = null){
@@ -16,7 +16,7 @@ class Db{
             $stmt = $this->pdo->query($sql);
             if($stmt){
                 if($stmt->rowCount() > 0){
-                    $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $arr = $stmt->fetchAll(\PDO::FETCH_ASSOC);
                 }
                 $stmt->closeCursor();
             }
@@ -25,7 +25,7 @@ class Db{
             if($stmt){
                 $stmt->execute($params);
                 if($stmt->rowCount() > 0){
-                    $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $arr = $stmt->fetchAll(\PDO::FETCH_ASSOC);
                 }
                 $stmt->closeCursor();
             }

@@ -1,4 +1,8 @@
 <?php
+spl_autoload_register(function($class){
+    require_once("$class.php");
+});
+
 $controller = 'home';
 $action = 'index';
 $params = NULL;
@@ -18,18 +22,19 @@ if(isset($_GET['url'])){
     }
 }
 
-// var_dump($controller);
-// var_dump($action);
-// var_dump($params);
-// -> string(5) "controller" string(5) "action" array(1) { [0]=> string(5) "params" }
-
 //require
-$class = ucfirst($controller)."Controller";  // -> ucfirst la viet Hoa
+
+$class = "controllers/".ucfirst($controller)."Controller";  // -> ucfirst la viet Hoa chu cai dau tien
+
+// truong hop windows thi $class = "controllers\\".ucfirst($controller)."Controller";  // -> ucfirst la viet Hoa
+
 //var_dump($class);
 
-$file = "./controllers/$class.php";
+$file = "$class.php";
+//var_dump($file);
+
 if(file_exists($file)){
-    require_once($file);
+    //require_once($file);
     $obj = new $class();
     //Miss
     if($params != NULL){
@@ -37,7 +42,6 @@ if(file_exists($file)){
     }else{
         $obj->$action();
     }
-    
 }else{
-    header('location:/');
+    header('location:/WebApp');
 }

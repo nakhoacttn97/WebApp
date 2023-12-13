@@ -1,7 +1,8 @@
 <?php
 #namespace
-#namespace controllers;
-require_once('BaseController.php');
+namespace controllers;
+//require_once('BaseController.php');
+
 class HomeController extends BaseController{
     //naive
     // protected function view(array $data, string $name){
@@ -24,9 +25,7 @@ class HomeController extends BaseController{
 
     function category(int $id, int $p = 1){
         $row = ['id' => 1, 'name' => 'Laptop Hp'];
-
         return $this->view(['row' => $row], 'home/category');
-        //echo "HOme Category id: {$id}, p: {$p}";
     }
 
     function details(int $id){
